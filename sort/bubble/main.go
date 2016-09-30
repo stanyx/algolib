@@ -1,8 +1,5 @@
 package bubble
 
-import (
-	"fmt"
-)
 
 func BubbleSort(arr []int) {
 
