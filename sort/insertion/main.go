@@ -1,19 +1,19 @@
-package main
+package insertion
 
 
-func InsertionSort(arr []int) {
+func InsertionSort(A []int) {
 
-	for i := 1; i < len(arr); i++ {
-		pick := arr[i]
+	for i := 1; i < len(A); i++ {
+		key := A[i]
 		lst := i
-		for j:= i-1; j > -1; j-- {
-			if arr[j] > pick {
-				arr[j + 1] = arr[j]
+		for j := i - 1; j > -1; j-- {
+			if A[j] > key {
+				A[j + 1] = A[j]
 				lst = j
 			} else {
 				break
 			}
 		}
-		arr[lst] = pick
+		A[lst] = key
 	}
 }

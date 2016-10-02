@@ -1,6 +1,6 @@
-package main
+package merge
 
-func merge(store []int64, t1 []int64, t2 []int64) {
+func merge(store []int, t1 []int, t2 []int) {
 
 	arrLeftPt := 0
 	arrRightPt := 0
@@ -45,36 +45,35 @@ func merge(store []int64, t1 []int64, t2 []int64) {
 
 }
 
-func mSort(store []int64, left int, right int) int {
+func MergeSort(A []int, left int, right int) {
 
 	if left == right {
-		return 0
+		return
 	} 
 	
 	var mid int = (right - left) / 2
-	leftPt := left
 	rightPt := mid + 1
 
-	temp1 := make([]int64, mid + 1)
-	for i:=0; i < len(temp1); i++ {
-		temp1[i] = store[i]
-	}
-	mSort(temp1, 0, len(temp1) - 1)
-
-	temp2 := make([]int64, len(store) - rightPt)
-	for i:=0; i < len(temp2); i++ {
-		temp2[i] = store[mid + 1 +i]
+	temp1 := make([]int, rightPt)
+	for i := 0; i < len(temp1); i++ {
+		temp1[i] = A[i]
 	}
 	
-	mSort(temp2, 0, len(temp2) - 1)
+	MergeSort(temp1, 0, len(temp1) - 1)
 
-	temp := make([]int64, len(store))
+	temp2 := make([]int, len(A) - rightPt)
+	for i := 0; i < len(temp2); i++ {
+		temp2[i] = A[rightPt + i]
+	}
+	
+	MergeSort(temp2, 0, len(temp2) - 1)
+
+	temp := make([]int, len(A))
 
 	merge(temp, temp1, temp2)
 
-	for i:=0; i < len(temp); i++ {
-		store[i] = temp[i]
+	for i := 0; i < len(temp); i++ {
+		A[i] = temp[i]
 	}
 
-	return 0
 }
