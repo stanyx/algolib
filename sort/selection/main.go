@@ -12,9 +12,9 @@ func SelectionSort(A []int) {
 		}
 
 		if A[min] < A[i] {
-			temp := arr[i]
-			A[min] = temp
+			temp := A[i]
 			A[i] = A[min]
+			A[min] = temp
 		}
 	}
 }
