@@ -7,13 +7,13 @@ func InsertionSort(A []int) {
 		key := A[i]
 		lst := i
 		for j := i - 1; j > -1; j-- {
-			if A[j] > key {
+			if A[j] > A[i] {
 				A[j + 1] = A[j]
 				lst = j
 			} else {
 				break
 			}
 		}
-		A[lst] = key
+		A[lst] = A[i]
 	}
 }
