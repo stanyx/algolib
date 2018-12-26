@@ -1,22 +1,20 @@
 package main
 
-func SelectionSort(arr []int) {
-	for i := 0; i < len(arr) - 1; i++ {
+func SelectionSort(A []int) {
+	for i := 0; i < len(A); i++ {
 
-		min := arr[i+1]
-		min_idx := i + 1
+		min := i
 
-		for j := i + 1; j < len(arr); j++ {
-			if arr[j] < min {
-				min = arr[j]
-				min_idx = j
+		for j := i + 1; j < len(A); j++ {
+			if A[j] < A[min] {
+				min = j
 			}
 		}
 
-		if min < arr[i] {
+		if A[min] < A[i] {
 			temp := arr[i]
-			arr[min_idx] = temp
-			arr[i] = min
+			A[min] = temp
+			A[i] = A[min]
 		}
 	}
 }
